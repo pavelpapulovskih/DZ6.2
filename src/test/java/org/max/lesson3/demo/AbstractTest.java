@@ -26,7 +26,7 @@ public abstract class AbstractTest {
     @BeforeAll
     static void initTest() throws IOException {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
-        configFile = new FileInputStream("src/main/resources/my.properties");
+        configFile = new FileInputStream("src/test/resources/lesson3.properties");
         prop.load(configFile);
 
         apiKey =  prop.getProperty("apiKey");
