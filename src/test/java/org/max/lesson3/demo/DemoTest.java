@@ -7,6 +7,7 @@ import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import org.max.lesson3.AbstractTest;
 
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -250,6 +251,7 @@ public class DemoTest extends AbstractTest {
     @Test
     void getAccountInfoWithExternalEndpointTest(){
         ResponseDTO response = given()
+                .queryParam("apiKey", getApiKey())
                 .when()
                 .formParam("title","Burger")
                 .post("https://api.spoonacular.com/recipes/cuisine").prettyPeek()

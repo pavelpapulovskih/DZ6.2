@@ -2,10 +2,11 @@ package org.max.lesson3.demo;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.max.lesson3.AbstractTest;
 
 import static io.restassured.RestAssured.given;
 
-public class LogDemoTest extends AbstractTest{
+public class LogDemoTest extends AbstractTest {
 
     @Test
     void logRequestTest() {

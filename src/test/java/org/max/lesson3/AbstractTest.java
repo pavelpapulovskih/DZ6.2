@@ -1,4 +1,4 @@
-package org.max.lesson3.demo;
+package org.max.lesson3;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
