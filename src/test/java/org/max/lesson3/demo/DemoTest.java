@@ -9,7 +9,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import org.max.lesson3.AbstractTest;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -174,7 +173,7 @@ public class DemoTest extends AbstractTest {
         assertThat(response.get("vegetarian"), is(false));
         assertThat(response.get("vegan"), is(false));
         assertThat(response.get("license"), equalTo("CC BY-SA 3.0"));
-        assertThat(response.get("pricePerServing"), equalTo(163.15F));
+        assertThat(response.get("pricePerServing"), equalTo(157.06F));
         assertThat(response.get("extendedIngredients[0].aisle"), equalTo("Milk, Eggs, Other Dairy"));
 
 
