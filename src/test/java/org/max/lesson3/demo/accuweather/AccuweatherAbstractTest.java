@@ -18,7 +18,7 @@ public abstract class AccuweatherAbstractTest {
 
     @BeforeAll
     static void initTest() throws IOException {
-        RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+        //RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
         configFile = new FileInputStream("src/test/resources/accuweather.properties");
         prop.load(configFile);
 
