@@ -3,22 +3,22 @@ package org.max.lesson3.seminar.accuweather;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.max.lesson3.seminar.accuweather.weather.Weather;
-import org.max.lesson3.seminar.spoonacular.ConvertAmountsDto;
+import org.max.lesson3.home.accuweather.AccuweatherAbstractTest;
+import org.max.lesson3.home.accuweather.weather.Weather;
 
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class GetWeatherOneDayTest extends AccuweatherAbstractTest{
+public class GetWeatherFiveDayTest extends AccuweatherAbstractTest {
 
     @Test
-    void getWeatherOneDay_shouldReturn() {
+    void getWeatherFiveDay_shouldReturn() {
 
         Weather response = given()
                 .queryParam("apikey", getApiKey())
                 .when()
-                .get(getBaseUrl()+"/forecasts/v1/daily/1day/290396")
+                .get(getBaseUrl()+"/forecasts/v1/daily/5day/290396")
                 .then()
                 .statusCode(200)
                 .time(Matchers.lessThan(2000l))
@@ -26,6 +26,6 @@ public class GetWeatherOneDayTest extends AccuweatherAbstractTest{
                 .response()
                 .body().as(Weather.class);
 
-        Assertions.assertEquals(1,response.getDailyForecasts().size());
+        Assertions.assertEquals(5,response.getDailyForecasts().size());
     }
 }
