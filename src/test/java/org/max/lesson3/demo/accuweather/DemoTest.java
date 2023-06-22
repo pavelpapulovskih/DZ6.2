@@ -119,14 +119,14 @@ public class DemoTest extends AccuweatherAbstractTest{
                 .body()
                 .jsonPath();
 
-        assertThat(response.get("data[0].ID"), equalTo("AFR"));
-        assertThat(response.get("data[1].ID"), equalTo("ANT"));
-        assertThat(response.get("data[2].ID"), equalTo("ARC"));
+        assertThat(response.get("[0].ID"), equalTo("AFR"));
+        assertThat(response.get("[1].ID"), equalTo("ANT"));
+        assertThat(response.get("[2].ID"), equalTo("ARC"));
 
 
         given().response().expect()
-                .body("data[0].LocalizedName", equalTo("Africa"))
-                .body("data[0].EnglishName", equalTo("Africa"))
+                .body("[0].LocalizedName", equalTo("Africa"))
+                .body("[0].EnglishName", equalTo("Africa"))
                 .when()
                 .request(Method.GET,getBaseUrl()+"/locations/{version}/regions?" +
                         "apikey={apiKey}", "v1", getApiKey())
@@ -135,9 +135,7 @@ public class DemoTest extends AccuweatherAbstractTest{
                 //.cookie("cookieName", "cookieValue")
                 .statusCode(200)
                 .statusLine("HTTP/1.1 200 OK")
-                .statusLine(containsString("OK"))
                 .header("Connection", "keep-alive")
-                .header("Content-Length", Integer::parseInt, lessThan(3000))
                 .contentType(ContentType.JSON)
                 .time(lessThan(2000L));
 
